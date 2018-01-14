@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe "Viewing the list of movies" do
-  it "shows the events" do
-    visit "http://example.com/movies"
+  it "shows the movies" do
+    visit movies_url
 
     expect(page).to have_text("3 Movies") # page is an object from Capybara
     expect(page).to have_text("Movie 1")
