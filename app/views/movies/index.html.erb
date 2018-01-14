@@ -1,1 +1,7 @@
-<h1>3 Events</h1>
+<h1><%= pluralize(@movies.size, 'Movie') %></h1>
+
+<ul>
+  <%= @movies.each do |movie| %>
+    <li><%= movie %></li>
+  <% end %>
+</ul>
