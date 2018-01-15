@@ -3,5 +3,9 @@
 <ul>
   <%= @movies.each do |movie| %>
     <li><%= movie.title %></li>
+    <li><%= movie.rating %></li>
+    <li><%= movie.released_on %></li>
+    <li><%= movie.description %></li>
+    <li><%= number_to_currency(movie.total_gross, precision: 0) %></li>
   <% end %>
 </ul>
