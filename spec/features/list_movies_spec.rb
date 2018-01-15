@@ -28,6 +28,7 @@ describe "Viewing the list of movies" do
     expect(page).to have_text(movie3.title)
 
     expect(page).to have_text(movie1.rating)
+    expect(page).to have_text("$675,020,017")
     expect(page).to have_text(movie1.description[0...9])
     expect(page).to have_text(movie1.released_on)
   end
