@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Showing an individual movie" do
+describe "Viewing an individual movie" do
   it "shows the movie's details" do
     movie = Movie.create(title: "Interstellar",
                           rating: "PG-13",
