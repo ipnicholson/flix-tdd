@@ -15,10 +15,21 @@ describe "Navigating movies " do
     movie = Movie.create(movie_attributes)
     
     visit movies_url
-
+    
     click_link movie.title
-
+    
     expect(current_path).to eq(movie_path(movie))
+  end
+  
+  it "allows navigation from detail page to edit page" do
+    movie = Movie.create(movie_attributes)
+    
+    visit movie_url(movie)
+
+    click_link "Edit"
+
+    expect(current_path).to eq(edit_movie_path(movie))
+
   end
 
 end
