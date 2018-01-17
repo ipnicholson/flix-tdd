@@ -19,5 +19,12 @@ describe "Viewing an individual movie" do
 
     expect(page).to have_text("$123,456")
   end
-  it "shows 'Unknown' if total gross is $0"
+
+  it "shows 'Unknown' if total gross is $0" do
+    movie = Movie.create(movie_attributes(total_gross: 0))
+
+    visit movie_url(movie)
+
+    expect(page).to have_text("Unknown")
+  end
 end
