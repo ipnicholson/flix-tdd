@@ -24,9 +24,9 @@ describe "Navigating movies " do
     
     visit movies_url
 
-    click_link "Interstellar"
+    click_link movie.title
 
-    expect(current_path).to eq(movie_url(movie))
+    expect(current_path).to eq(movie_path(movie))
   end
 
 end
