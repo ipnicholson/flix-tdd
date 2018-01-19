@@ -39,4 +39,23 @@ describe "Navigating movies" do
 
     expect(current_path).to eq(new_movie_path)
   end
+
+  it "allows canceling creating a new movie" do
+    visit new_movie_url
+
+    click_link "Cancel"
+
+    expect(current_path).to eq(movies_path)
+  end
+  
+  it "allows canceling editing a new movie" do
+    movie = Movie.create(movie_attributes)
+    
+    visit movie_path(movie)
+
+    click_link "Edit"
+    click_link "Cancel"
+
+    expect(current_path).to eq(movies_path)
+  end
 end
