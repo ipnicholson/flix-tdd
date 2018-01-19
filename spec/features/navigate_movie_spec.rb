@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Navigating movies " do
+describe "Navigating movies" do
   it "allows navigation from detail page to listing page" do
     movie = Movie.create(movie_attributes)
 
@@ -32,4 +32,11 @@ describe "Navigating movies " do
 
   end
 
+  it "allows navigation from the listing page to new movie page" do
+    visit movies_url
+
+    click_link "Add Movie"
+
+    expect(current_path).to eq(new_movie_path)
+  end
 end
