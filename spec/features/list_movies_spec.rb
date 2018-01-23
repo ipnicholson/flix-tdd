@@ -19,12 +19,6 @@ describe "Viewing the list of movies" do
                           total_gross: 76257813,
                           description: "A young boy named Kubo must locate a magical suit of armour worn by his late father in order to defeat a vengeful spirit from the past.",
                           released_on: "2016-08-19")
-    
-    movie4 = Movie.create(title: "Sample Future Movie",
-                          rating: "PG",
-                          total_gross: 123456789,
-                          description: "Sample description",
-                          released_on: "2222-11-22")
 
     visit movies_url
 
@@ -37,5 +31,13 @@ describe "Viewing the list of movies" do
     expect(page).to have_text("$675,020,017")
     expect(page).to have_text(movie1.description[0...9])
     expect(page).to have_text(movie1.released_on)
+  end
+
+  it "does not show a movie that is yet to be released" do
+    movie = Movie.create(movie_attributes(released_on: 1.month.from_now))
+
+    visit movies_path
+
+    expect(page).to_not have_text(movie.title)
   end
 end
