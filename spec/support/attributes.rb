@@ -4,6 +4,9 @@ def movie_attributes(overrides = {})
     rating: "PG-13",
     total_gross: 675020017,
     description: "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-    released_on: "2014-11-07"
+    director: "Christopher Nolan",
+    cast: "Matthew McConaughey, Jessica Chastain, Anne Hathaway, Michael Caine",
+    released_on: "2014-11-07",
+    duration: "169 min"
   }.merge(overrides)
 end
