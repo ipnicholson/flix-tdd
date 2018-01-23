@@ -9,7 +9,10 @@ describe "Viewing an individual movie" do
     expect(page).to have_text(movie.title)
     expect(page).to have_text(movie.rating)
     expect(page).to have_text(movie.description)
+    expect(page).to have_text(movie.director)
+    expect(page).to have_text(movie.cast)
     expect(page).to have_text(movie.released_on)
+    expect(page).to have_text(movie.duration)
   end
 
   it "shows the total gross if not $0" do
