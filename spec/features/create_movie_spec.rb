@@ -16,15 +16,23 @@ describe "Creating a new movie" do
 
     expect(current_path).to eq(new_movie_path)
 
-    fill_in "Title",        with: "Test Movie Title"
-    fill_in "Description",  with: "Test movie description"
+    fill_in "Title",        with: "Movie McMovieface"
+    fill_in "Description",  with: "The quick brown fox"
     fill_in "Released on",  with: "2017-01-01"    
-    fill_in "Rating",       with: "Test movie rating"
+    fill_in "Rating",       with: "PG-13"
     fill_in "Total gross",  with: 123456789
+    fill_in "Director",     with: "Director McDirectorface"
+    fill_in "Cast",         with: "Casty McCastface"
+    fill_in "Duration",     with: "123 min"
+    fill_in "Image file name", with: "movie.png"
+
 
     click_button ("Create Movie")
 
-    expect(page).to have_text("Test Movie Title")
+    expect(page).to have_text("Movie McMovieface")
+    expect(page).to have_text("The quick brown fox")
+    expect(page).to have_text("PG-13")
+    expect(page).to have_text("Director McDirectorface")
   end
 
 end
