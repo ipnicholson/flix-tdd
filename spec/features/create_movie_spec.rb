@@ -5,7 +5,7 @@ describe "Creating a new movie" do
     visit new_movie_url
 
     expect(find_field("Title").value).to eq(nil)
-    expect(find_field("Image file").value).to eq(nil)
+    expect(find_field("Image file").value).to eq("")
     expect(find_field("Description").value).to eq("")
     expect(find_field("Rating").value).to eq(nil)
     expect(find_field("Director").value).to eq(nil)
