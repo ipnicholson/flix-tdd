@@ -28,7 +28,7 @@ describe "Creating a new movie" do
     fill_in "Director",     with: "Director McDirectorface"
     fill_in "Cast",         with: "Casty McCastface"
     fill_in "Duration",     with: "123 min"
-    fill_in "Image file name", with: "movie.png"
+    fill_in "Image file name", with: "placeholder.png"
 
 
     click_button ("Create Movie")
