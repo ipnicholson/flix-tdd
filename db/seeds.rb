@@ -49,7 +49,7 @@ Movie.create!([
     director: "Travis Knight",
     cast: "Charlize Theron, Art Parkinson, Matthew McConaughey",
     duration: "101 min",
-    image_file_name: "kuboandthetwostrsings.jpg"
+    image_file_name: "kuboandthetwostrings.jpg"
   }
 ])
 
