@@ -46,4 +46,14 @@ describe "A movie" do
 
     expect(Movie.recently_added).to eq([movie3, movie2, movie1])
   end
+
+  it "accepts a positive total gross" do
+    movie = Movie.create(movie_attributes(total_gross: 100000))
+
+    expect(movie.errors[:total_gross].any?).to eq(false)
+  end
+
+  it "has a valid image file name" do
+    
+  end
 end

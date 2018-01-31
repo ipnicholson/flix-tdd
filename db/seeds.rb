@@ -23,7 +23,7 @@ Movie.create!([
     rating: "PG-13",
     total_gross: 525573161,
     description: "Allied soldiers from Belgium, the British Empire and France are surrounded by the German Army, and evacuated during a fierce battle in World War II.",
-    released_on: "2017-07-21"
+    released_on: "2017-07-21",
     director: "Christopher Nolan",
     cast: "Fionn Whitehead, Harry Styles, Tom Hardy, Kenneth Branagh",
     duration: "106 min",
@@ -34,7 +34,7 @@ Movie.create!([
     rating: "Not Rated",
     total_gross: 0,
     description: "This powerful film odyssey across America explores the sea change in our national attitude from pride in big dams as engineering wonders to the growing awareness that our own future is bound to the life and health of our rivers.",
-    released_on: "2014-03-10"
+    released_on: "2014-03-10",
     director: "Ben Knight, Travis Rummel",
     cast: "",
     duration: "87 min",
@@ -45,11 +45,11 @@ Movie.create!([
     rating: "PG",
     total_gross: 76257813,
     description: "A young boy named Kubo must locate a magical suit of armour worn by his late father in order to defeat a vengeful spirit from the past.",
-    released_on: "2016-08-19"
+    released_on: "2016-08-19",
     director: "Travis Knight",
     cast: "Charlize Theron, Art Parkinson, Matthew McConaughey",
     duration: "101 min",
-    image_file_name: "kuboandthetwostrsings.jpg"
+    image_file_name: "kuboandthetwostrings.jpg"
   }
 ])
 

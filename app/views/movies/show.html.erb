@@ -1,54 +1,39 @@
-<article>
+<article id="movie" class="movie">
   <header>
+    <%= image_for(@movie) %>
     <h1><%= @movie.title %></h1>
+    <h2>Released: (<%= @movie.released_on %>)</h2>
   </header>
-  <%= image_for(@movie) %>
-  <h2>Description</h2>
+
   <p>
     <%= @movie.description %>
   </p>
-  <h2>Director</h2>
-  <p>
-    <%= @movie.director %>
-  </p>
-  <h2>Cast</h2>
-  <p>
-    <%= @movie.cast %>
-  </p>
-  <h2>Duration</h2>
-  <p>
-    <%= @movie.duration %>
-  </p>
-  <h3>Rating</h3>
-  <p>
-    <%= @movie.rating %>
-  </p>
-  <h3>Released On</h3>
-  <p>
-    <%= @movie.released_on %>
-  </p>
+
+  <h3 class="no-rule">
+    <%= @movie.rating %> &bull; <%= @movie.duration %>
+  </h3>
+
   <h3>Director</h3>
   <p>
     <%= @movie.director %>
   </p>
+
   <h3>Cast</h3>
   <p>
     <%= @movie.cast %>
   </p>
-  <h3>Duration</h3>
-  <p>
-    <%= @movie.duration %>
-  </p>
+
   <h3>Total Gross</h3>
   <p>
     <%= format_total_gross(@movie) %>
   </p>
+
+  <footer>
+    <nav>
+      <%= link_to "Edit", edit_movie_path(@movie), class: 'button' %>
+      <%= link_to "Delete", movie_path(@movie),
+          class: "button",
+          method: :delete, data: {confirm: "Delete this movie?"} %>
+    </nav>
+  </footer>
 </article>
-
-<nav>
-  <%= link_to "All Movies", movies_path %> |
-  <%= link_to "Edit", edit_movie_path(@movie) %> |
-  <%= link_to "Delete", movie_path(@movie), method: :delete, data: {confirm: "Delete this movie?"} %>
-</nav>
-
-<%= render "footer" %>
