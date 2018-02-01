@@ -21,7 +21,7 @@ describe "Creating a new movie" do
     expect(current_path).to eq(new_movie_path)
 
     fill_in "Title",        with: "Movie McMovieface"
-    fill_in "Description",  with: "The quick brown fox"
+    fill_in "Description",  with: "The quick brown fox jumped over the lazy green frog."
     fill_in "Released on",  with: "2017-01-01"    
     fill_in "Rating",       with: "PG-13"
     fill_in "Total gross",  with: 123456789
