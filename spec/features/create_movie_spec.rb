@@ -7,7 +7,7 @@ describe "Creating a new movie" do
     expect(find_field("Title").value).to eq(nil)
     expect(find_field("Image file").value).to eq("")
     expect(find_field("Description").value).to eq("")
-    expect(find_field("Rating").value).to eq(nil)
+    expect(page).to have_text("Pick One")
     expect(find_field("Director").value).to eq(nil)
     expect(find_field("Cast").value).to eq(nil)
     expect(find_field("Duration").value).to eq(nil)
@@ -23,7 +23,7 @@ describe "Creating a new movie" do
     fill_in "Title",        with: "Movie McMovieface"
     fill_in "Description",  with: "The quick brown fox jumped over the lazy green frog."
     fill_in "Released on",  with: "2017-01-01"    
-    fill_in "Rating",       with: "PG-13"
+    select "PG-13", :from => "movie_rating" 
     fill_in "Total gross",  with: 123456789
     fill_in "Director",     with: "Director McDirectorface"
     fill_in "Cast",         with: "Casty McCastface"
