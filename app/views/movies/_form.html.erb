@@ -27,7 +27,7 @@
       </li>
       <li class="required">
         <%= f.label :rating %><br/>
-        <%= f.text_field :rating %>
+        <%= f.select :rating, Movie::RATINGS, prompt: "Pick One" %>
       </li>
       <li class="required">
         <%= f.label :released_on %><br/>
