@@ -7,6 +7,7 @@ def movie_attributes(overrides = {})
     director: "Christopher Nolan",
     cast: "Matthew McConaughey, Jessica Chastain, Anne Hathaway, Michael Caine",
     released_on: "2014-11-07",
-    duration: "169 min"
+    duration: "169 min",
+    image_file_name: "interstellar.jpg"
   }.merge(overrides)
 end
