@@ -30,7 +30,6 @@ describe "Creating a new movie" do
     fill_in "Duration",     with: "123 min"
     fill_in "Image file name", with: "placeholder.png"
 
-
     click_button ("Create Movie")
 
     expect(page).to have_text("Movie McMovieface")
@@ -50,4 +49,23 @@ describe "Creating a new movie" do
     expect(page).to have_text('error')
   end
 
+  it "shows a flash message on successful creation" do
+    visit new_movie_url
+
+    expect(current_path).to eq(new_movie_path)
+
+    fill_in "Title",        with: "Movie McMovieface"
+    fill_in "Description",  with: "The quick brown fox jumped over the lazy green frog."
+    fill_in "Released on",  with: "2017-01-01"    
+    select "PG-13", :from => "movie_rating" 
+    fill_in "Total gross",  with: 123456789
+    fill_in "Director",     with: "Director McDirectorface"
+    fill_in "Cast",         with: "Casty McCastface"
+    fill_in "Duration",     with: "123 min"
+    fill_in "Image file name", with: "placeholder.png"
+
+    click_button ("Create Movie")
+
+    expect(page).to have_text("Movie successfully created!")
+  end
 end
