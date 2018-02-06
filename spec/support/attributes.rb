@@ -11,3 +11,11 @@ def movie_attributes(overrides = {})
     image_file_name: "interstellar.jpg"
   }.merge(overrides)
 end
+
+def review_attributes(overrides = {})
+  {
+    name: "John Public",
+    comment: "I have bad taste, but this was great!",
+    stars: 4
+  }.merge(overrides)
+end
