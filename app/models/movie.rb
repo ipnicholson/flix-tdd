@@ -14,6 +14,7 @@ class Movie < ApplicationRecord
     message: "Must be .gif, .jpg, or .png file name"
   }
 
+  has_many :reviews, dependent: :destroy
 
   def total_gross_zero?
     total_gross.blank? || total_gross.zero?
