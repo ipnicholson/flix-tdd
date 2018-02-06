@@ -116,4 +116,26 @@ describe "A movie" do
       expect(movie.errors[:rating].any?).to eq(true)
     end
   end
+
+  it "has many reviews" do
+    movie = Movie.create(movie_attributes)
+    
+    review1 = movie.reviews.create(review_attributes)
+    review2 = movie.reviews.create(review_attributes)
+    
+    expect(movie.reviews).to include(review1)
+    expect(movie.reviews).to include(review2)
+  end
+  
+  it "deletes associated reviews when deleted" do
+    movie = Movie.create(movie_attributes)
+    
+    review1 = movie.reviews.create(review_attributes)
+    review2 = movie.reviews.create(review_attributes)
+
+    movie.destroy
+
+    expect(Review.all).to_not include(review1)
+    expect(Review.all).to_not include(review2)
+  end
 end
