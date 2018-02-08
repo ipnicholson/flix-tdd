@@ -2,6 +2,9 @@ class Movie < ApplicationRecord
 
   validates :title, :rating, :released_on, presence: true
 
+  RATINGS = %w[G PG PG-13 R NC-17] << "Not Rated"
+  validates :rating, inclusion: { in: RATINGS }
+  
   validates :description, length: { minimum: 25 }
   
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
@@ -10,6 +13,8 @@ class Movie < ApplicationRecord
     with: /\w+.(gif|jpg|png)/i,
     message: "Must be .gif, .jpg, or .png file name"
   }
+
+  has_many :reviews, dependent: :destroy
 
   def total_gross_zero?
     total_gross.blank? || total_gross.zero?

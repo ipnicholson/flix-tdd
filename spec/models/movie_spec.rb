@@ -47,6 +47,12 @@ describe "A movie" do
     expect(Movie.recently_added).to eq([movie3, movie2, movie1])
   end
 
+  it "requires a title" do
+    movie = Movie.create(movie_attributes(title: ""))
+
+    expect(movie.errors[:title].any?).to eq(true)
+  end
+
   it "accepts a positive total gross" do
     movie = Movie.create(movie_attributes(total_gross: 100000))
 
@@ -91,5 +97,45 @@ describe "A movie" do
       movie = Movie.create(movie_attributes(image_file_name: file_name))
       expect(movie.errors[:image_file_name].any?).to eq(true)
     end
+  end
+
+  it "accepts any rating on an approved list" do
+    ratings = %w[G PG PG-13 R NC-17] << "Not Rated"
+    ratings.each do |rating|
+      movie = Movie.create(movie_attributes(rating: rating))
+
+      expect(movie.errors[:rating].any?).to eq(false)
+    end
+  end
+  
+  it "rejects any rating not on an approved list" do
+    ratings = %w[X N/A G-13 PR]
+    ratings.each do |rating|
+      movie = Movie.create(movie_attributes(rating: rating))
+
+      expect(movie.errors[:rating].any?).to eq(true)
+    end
+  end
+
+  it "has many reviews" do
+    movie = Movie.create(movie_attributes)
+    
+    review1 = movie.reviews.create(review_attributes)
+    review2 = movie.reviews.create(review_attributes)
+    
+    expect(movie.reviews).to include(review1)
+    expect(movie.reviews).to include(review2)
+  end
+  
+  it "deletes associated reviews when deleted" do
+    movie = Movie.create(movie_attributes)
+    
+    review1 = movie.reviews.create(review_attributes)
+    review2 = movie.reviews.create(review_attributes)
+
+    movie.destroy
+
+    expect(Review.all).to_not include(review1)
+    expect(Review.all).to_not include(review2)
   end
 end
