@@ -53,5 +53,29 @@ Movie.create!([
   }
 ])
 
-
-
+Review.create!([
+  {
+    name: "John Public",
+    comment: "Was expecting more explosions and Megan Fox...",
+    stars: 2,
+    movie_id: 1
+  },
+  {
+    name: "John Public",
+    comment: "wut",
+    stars: 1,
+    movie_id: 2
+  },
+  {
+    name: "John Public",
+    comment: "I have bad taste, but this was great!",
+    stars: 4,
+    movie_id: 3
+  },
+  {
+    name: "John Public",
+    comment: "I didn't get it...",
+    stars: 3,
+    movie_id: 4
+  },
+])
