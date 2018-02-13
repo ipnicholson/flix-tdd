@@ -31,7 +31,7 @@ describe "A review" do
 
   it "requires a comment over 1 character" do
     review = Review.create(review_attributes(comment: "X"))
-    
+
     expect(review.errors[:comment].any?).to eq(true)
   end
 
@@ -40,7 +40,7 @@ describe "A review" do
 
     stars.each do |star|
       review = Review.create(review_attributes(stars: star))
-      
+
       expect(review.errors[:stars].any?).to eq(true)
     end
 
@@ -50,10 +50,10 @@ describe "A review" do
 
     stars.each do |star|
       review = Review.create(review_attributes(stars: star))
-      
+
       expect(review.errors[:stars].any?).to eq(false)
     end
 
   end
-  
+
 end

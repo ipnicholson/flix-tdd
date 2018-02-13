@@ -9,13 +9,13 @@ describe "A movie" do
 
   it "shows total gross if total gross is non-$0" do
     movie = Movie.new(total_gross: 123456)
-    
+
     expect(movie.total_gross_zero?).to eq(false)
   end
-  
+
   it "shows total gross of 'Unknown' if total gross is blank" do
     movie = Movie.new(total_gross: nil)
-    
+
     expect(movie.total_gross_zero?).to eq(true)
   end
 
@@ -74,12 +74,12 @@ describe "A movie" do
 
     expect(movie.errors[:total_gross].any?).to eq(false)
   end
-  
+
   it "accepts a negative total gross" do
     movie = Movie.create(movie_attributes(total_gross: -100000))
-  
+
     # movie.valid?
-  
+
     expect(movie.errors[:total_gross].any?).to eq(true)
   end
 
@@ -90,7 +90,7 @@ describe "A movie" do
       expect(movie.errors[:image_file_name].any?).to eq(false)
     end
   end
-  
+
   it "rejects improperly formatted image file names" do
     file_names = %w[movie .png .jpg .gif movie.doc]
     file_names.each do |file_name|
@@ -107,7 +107,7 @@ describe "A movie" do
       expect(movie.errors[:rating].any?).to eq(false)
     end
   end
-  
+
   it "rejects any rating not on an approved list" do
     ratings = %w[X N/A G-13 PR]
     ratings.each do |rating|
@@ -119,17 +119,17 @@ describe "A movie" do
 
   it "has many reviews" do
     movie = Movie.create(movie_attributes)
-    
+
     review1 = movie.reviews.create(review_attributes)
     review2 = movie.reviews.create(review_attributes)
-    
+
     expect(movie.reviews).to include(review1)
     expect(movie.reviews).to include(review2)
   end
-  
+
   it "deletes associated reviews when deleted" do
     movie = Movie.create(movie_attributes)
-    
+
     review1 = movie.reviews.create(review_attributes)
     review2 = movie.reviews.create(review_attributes)
 
