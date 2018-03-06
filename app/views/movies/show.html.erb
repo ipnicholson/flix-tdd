@@ -29,6 +29,8 @@
     <%= format_total_gross(@movie) %>
   </p>
 
+  <h3><%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %></h3>
+
   <footer>
     <nav>
       <%= link_to "Edit", edit_movie_path(@movie), class: 'button' %>
