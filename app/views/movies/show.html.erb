@@ -32,6 +32,10 @@
   <h3><%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %></h3>
 
   <footer>
+    <%= link_to "Add Review", new_movie_review_path(@movie),
+      class: "button ok review"
+    %>
+
     <nav>
       <%= link_to "Edit", edit_movie_path(@movie), class: 'button' %>
       <%= link_to "Delete", movie_path(@movie),
