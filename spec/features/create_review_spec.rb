@@ -13,6 +13,7 @@ describe "Creating a review" do
 
     click_button ("Create Review")
 
+    expect(page).to have_text("Review sucessfully added!")
     expect(page).to have_text("Reviewer McReviewface")
     expect(page).to have_text("5 Stars")
     expect(page).to have_text("What about the droid attack on the wookies?")
