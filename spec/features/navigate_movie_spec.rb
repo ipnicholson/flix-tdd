@@ -68,4 +68,13 @@ describe "Navigating movies" do
     expect(current_path).to eq(movie_reviews_path(movie))
   end
 
+  it "allows navigation from show page to new review page" do
+    movie = Movie.create(movie_attributes)
+
+    visit movie_url(movie)
+    click_link("Add Review")
+
+    expect(current_path).to eq(new_movie_review_path(movie))
+  end
+
 end
