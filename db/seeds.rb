@@ -78,4 +78,28 @@ Review.create!([
     stars: 3,
     movie_id: 4
   },
+  {
+    name: "Hulk",
+    comment: "lemme smash",
+    stars: 4,
+    movie_id: 4
+  },
+  {
+    name: "Bruce Wayne",
+    comment: "I fight crime all day in a rubber suit; really seals in the flavor.",
+    stars: 1,
+    movie_id: 4
+  },
+  {
+    name: "Bernie Sanders",
+    comment: "YUUUUUGE",
+    stars: 5,
+    movie_id: 4
+  },
+  {
+    name: "Peter Quill",
+    comment: "I'm pretty sure the answer is \"I am Groot.\"",
+    stars: 4,
+    movie_id: 3
+  },
 ])
