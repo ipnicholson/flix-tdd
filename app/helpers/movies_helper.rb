@@ -25,4 +25,14 @@ module MoviesHelper
     end
   end
 
+  def format_star_display(movie)
+    average = movie.average_stars
+    unless average.nil?
+      "⭐️" * average.floor
+    end
+  end
+
+  def format_recent_reviews(movie)
+
+  end
 end
