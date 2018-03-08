@@ -19,3 +19,11 @@ def review_attributes(overrides = {})
     stars: 4
   }.merge(overrides)
 end
+
+def review_attributes_2(overrides = {})
+  {
+    name: "HULK",
+    comment: "LEMME SMASH",
+    stars: 5
+  }.merge(overrides)
+end
