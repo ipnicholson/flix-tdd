@@ -28,4 +28,9 @@ class Movie < ApplicationRecord
   def self.recently_added
     order("created_at desc")
   end
+
+  def average_stars
+    reviews.average(:stars).to_i
+  end
+
 end
