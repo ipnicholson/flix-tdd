@@ -33,4 +33,8 @@ class Movie < ApplicationRecord
     reviews.average(:stars)
   end
 
+  def recent_reviews # returns array of two most recent reviews
+    reviews.order('created_at').limit(2)
+  end
+
 end
