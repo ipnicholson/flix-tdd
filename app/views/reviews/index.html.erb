@@ -1,4 +1,4 @@
-<h1><%= pluralize(@reviews.size, 'Review') %> for <%= link_to @movie.title %> </h1>
+<h1><%= pluralize(@reviews.size, 'Review') %> for <%= link_to @movie.title, @movie %> </h1>
 
 <ol id="reviews">
   <% @reviews.each do |review| %>
