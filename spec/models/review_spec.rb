@@ -45,6 +45,7 @@ describe "A review" do
     end
 
   end
+
   it "accepts star values of 1 through 5" do
     stars = Array (1..5)
 
