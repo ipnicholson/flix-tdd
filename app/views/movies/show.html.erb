@@ -31,6 +31,7 @@
 
   <h3>User Rating</h3>
     <p>
+      <%= format_star_display(@movie) %>
       <%= format_average_stars(@movie) %> from
       <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
     </p>
