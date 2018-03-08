@@ -120,22 +120,33 @@ describe "A movie" do
   it "has many reviews" do
     movie = Movie.create(movie_attributes)
 
-    review1 = movie.reviews.create(review_attributes)
-    review2 = movie.reviews.create(review_attributes)
+    review_1 = movie.reviews.create(review_attributes)
+    review_2 = movie.reviews.create(review_attributes_2)
 
-    expect(movie.reviews).to include(review1)
-    expect(movie.reviews).to include(review2)
+    expect(movie.reviews).to include(review_1)
+    expect(movie.reviews).to include(review_2)
   end
 
   it "deletes associated reviews when deleted" do
     movie = Movie.create(movie_attributes)
 
-    review1 = movie.reviews.create(review_attributes)
-    review2 = movie.reviews.create(review_attributes)
+    review_1 = movie.reviews.create(review_attributes)
+    review_2 = movie.reviews.create(review_attributes_2)
 
     movie.destroy
 
-    expect(Review.all).to_not include(review1)
-    expect(Review.all).to_not include(review2)
+    expect(Review.all).to_not include(review_1)
+    expect(Review.all).to_not include(review_2)
   end
+
+  it "calculates the average number of review stars" do
+    movie = Movie.create(movie_attributes)
+
+    movie.reviews.create(review_attributes(stars: 1))
+    movie.reviews.create(review_attributes(stars: 3))
+    movie.reviews.create(review_attributes(stars: 5))
+
+    expect(movie.average_stars).to eq(3)
+  end
+
 end
