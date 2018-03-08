@@ -1,4 +1,5 @@
 module MoviesHelper
+
   def format_total_gross(movie)
     if movie.total_gross_zero?
       content_tag(:em, "Unknown")
@@ -14,4 +15,14 @@ module MoviesHelper
       image_tag movie.image_file_name
     end
   end
+
+  def format_average_stars(movie)
+    average = movie.average_stars
+    if average.nil?
+      content_tag(:strong, "No Stars")
+    else
+      pluralize(average.round(2), "Star")
+    end
+  end
+
 end
