@@ -30,7 +30,7 @@ class Movie < ApplicationRecord
   end
 
   def average_stars
-    reviews.average(:stars).to_i
+    reviews.average(:stars)
   end
 
 end
