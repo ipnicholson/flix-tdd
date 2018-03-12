@@ -19,8 +19,8 @@
 
 <footer>
   <nav>
-    <%= link_to "Edit", edit_movie_review_path(@review), class: "button" %>
-    <%= link_to "Delete", movie_review_path(@review),
+    <%= link_to "Edit", edit_movie_review_path(@movie, @review), class: "button" %>
+    <%= link_to "Delete", movie_review_path(@movie, @review),
       class: "button",
       method: :delete, data: {confirm: "Delete this review?"} %>
   </nav>
