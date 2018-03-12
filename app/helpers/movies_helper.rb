@@ -32,6 +32,7 @@ module MoviesHelper
     end
   end
 
+  # currently unused
   def format_recent_reviews(movie)
     movie.recent_reviews.each do |review|
       review.comment
