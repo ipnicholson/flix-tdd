@@ -34,7 +34,7 @@ class Movie < ApplicationRecord
   end
 
   def recent_reviews # returns array of two most recent reviews
-    reviews.order('created_at').limit(2)
+    reviews.order('created_at desc').limit(2) #desc is short for "descending", not description
   end
 
 end
