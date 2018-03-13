@@ -1,5 +1,5 @@
 <%= form_for(@movie) do |f| %>
-  <%= render 'shared/errors' %>
+  <%= render 'shared/errors', object: @movie %>
   <fieldset>
     <ol>
       <li class="required">
@@ -38,7 +38,7 @@
         <%= f.label :total_gross %><br/>
         <%= f.number_field :total_gross %>
       </li>
-    </ol> 
+    </ol>
     <p>
       <%= f.submit %> |
       <%= link_to "Cancel", movies_path, class: 'button' %>

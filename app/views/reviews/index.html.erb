@@ -1,0 +1,20 @@
+<h1><%= pluralize(@reviews.size, 'Review') %> for <%= link_to @movie.title, @movie %> </h1>
+
+<ol id="reviews">
+  <% @reviews.each do |review| %>
+    <li>
+      <span class="review">
+        <%= pluralize(review.stars, 'Star') %>
+      </span>
+      <span class="user">
+        by <%= review.name %>
+      </span>
+      <span class="date">
+        <%= time_ago_in_words(review.created_at) %> ago
+      </span>
+      <p>
+        &quot;<%= review.comment %>&quot;
+      </p>
+    </li>
+  <% end %>
+</ol>

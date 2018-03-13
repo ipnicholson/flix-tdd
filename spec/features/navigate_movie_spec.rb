@@ -10,20 +10,20 @@ describe "Navigating movies" do
 
     expect(current_path).to eq(movies_path)
   end
-  
+
   it "allows navigation from listing page to detail page" do
     movie = Movie.create(movie_attributes)
-    
+
     visit movies_url
-    
+
     click_link movie.title
-    
+
     expect(current_path).to eq(movie_path(movie))
   end
-  
+
   it "allows navigation from detail page to edit page" do
     movie = Movie.create(movie_attributes)
-    
+
     visit movie_url(movie)
 
     click_link "Edit"
@@ -47,10 +47,10 @@ describe "Navigating movies" do
 
     expect(current_path).to eq(movies_path)
   end
-  
+
   it "allows canceling editing a new movie" do
     movie = Movie.create(movie_attributes)
-    
+
     visit movie_path(movie)
 
     click_link "Edit"
@@ -58,4 +58,23 @@ describe "Navigating movies" do
 
     expect(current_path).to eq(movies_path)
   end
+
+  it "allows navigation from show page to reviews page" do
+    movie = Movie.create(movie_attributes)
+
+    visit movie_url(movie)
+    click_link("0 Reviews")
+
+    expect(current_path).to eq(movie_reviews_path(movie))
+  end
+
+  it "allows navigation from show page to new review page" do
+    movie = Movie.create(movie_attributes)
+
+    visit movie_url(movie)
+    click_link("Add Review")
+
+    expect(current_path).to eq(new_movie_review_path(movie))
+  end
+
 end

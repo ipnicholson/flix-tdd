@@ -4,9 +4,9 @@ class Movie < ApplicationRecord
 
   RATINGS = %w[G PG PG-13 R NC-17] << "Not Rated"
   validates :rating, inclusion: { in: RATINGS }
-  
+
   validates :description, length: { minimum: 25 }
-  
+
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
 
   validates :image_file_name, allow_blank: true, format: {
@@ -28,4 +28,13 @@ class Movie < ApplicationRecord
   def self.recently_added
     order("created_at desc")
   end
+
+  def average_stars
+    reviews.average(:stars)
+  end
+
+  def recent_reviews # returns array of two most recent reviews
+    reviews.order('created_at desc').limit(2) #desc is short for "descending", not description
+  end
+
 end
