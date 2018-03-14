@@ -9,10 +9,13 @@ class Movie < ApplicationRecord
 
   validates :total_gross, numericality: { greater_than_or_equal_to: 0 }
 
-  validates :image_file_name, allow_blank: true, format: {
-    with: /\w+.(gif|jpg|png)/i,
-    message: "Must be .gif, .jpg, or .png file name"
-  }
+  # Paperclip method
+  has_attached_file :poster_image
+
+  validates_attachment :poster_image, presence: true,
+    # Ensure file is of correct type and not just correct file extension
+    content_type: { content_type: ["image/jpeg", "image/png"] },
+    size: { in: 0..1.megabytes }
 
   has_many :reviews, dependent: :destroy
 
