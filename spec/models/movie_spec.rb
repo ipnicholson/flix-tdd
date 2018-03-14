@@ -83,22 +83,6 @@ describe "A movie" do
     expect(movie.errors[:total_gross].any?).to eq(true)
   end
 
-  it "accepts properly formatted image file names" do
-    file_names = %w[e.png movie.png movie.jpg movie.gif MOVIE.GIF]
-    file_names.each do |file_name|
-      movie = Movie.create(movie_attributes(image_file_name: file_name))
-      expect(movie.errors[:image_file_name].any?).to eq(false)
-    end
-  end
-
-  it "rejects improperly formatted image file names" do
-    file_names = %w[movie .png .jpg .gif movie.doc]
-    file_names.each do |file_name|
-      movie = Movie.create(movie_attributes(image_file_name: file_name))
-      expect(movie.errors[:image_file_name].any?).to eq(true)
-    end
-  end
-
   it "accepts any rating on an approved list" do
     ratings = %w[G PG PG-13 R NC-17] << "Not Rated"
     ratings.each do |rating|
