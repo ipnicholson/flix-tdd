@@ -1,18 +1,8 @@
-
-/*
- * The Pragmatic Studio
- * http://pragmaticstudio.com
- * Copyright (c) 2011 The Pragmatic Studio
- *
- * Please don't use this exact layout and style
- * combination in your applications.
- */
-
 @import "colors";
 
 /* MOVIES */
 
-article#movie {
+article.movie {
   p {
     padding: .5em 0;
     font-size: 1.15em;
@@ -38,6 +28,7 @@ article#movie {
 
   img {
     float: right;
+    width: 150px;
     margin: 0 0 20px 20px;
     border: 3px solid $subdued-color;
   }
@@ -190,7 +181,7 @@ ol#reviews {
   text-align: center;
   text-transform: uppercase;
   box-shadow: #ffc 0 0 4px;
-  
+
   &.notice {
     background-color: $flash-notice-color;
   }
