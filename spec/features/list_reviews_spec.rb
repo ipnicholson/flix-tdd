@@ -33,12 +33,12 @@ describe "Viewing a list of reviews" do
 
     visit movie_reviews_path(movie)
 
-    expect(page).to have_text("Interstellar")
+    expect(page).to have_text(movie.title)
     expect(page).to have_text("3 Reviews")
-    expect(page).to have_text("John Public")
-    expect(page).to have_text("Was expecting more explosions and Megan Fox...")
-    expect(page).to have_text("Bruce Wayne")
-    expect(page).to have_text("Hulk")
+    expect(page).to have_text(review_1.name)
+    expect(page).to have_text(review_1.comment)
+    expect(page).to have_text(review_2.name)
+    expect(page).to have_text(review_3.name)
 
   end
 end
