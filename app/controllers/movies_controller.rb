@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
     else
       render :new
     end
-    
+
   end
 
   def destroy
@@ -40,11 +40,11 @@ class MoviesController < ApplicationController
 
     redirect_to movies_path, alert: "Movie successfully deleted!"
   end
-  
+
   private
     def movie_params
       movie_params = params.require(:movie).
-              permit(:title, :description, :rating, :released_on, :total_gross, :image_file_name, :director, :cast, :duration)
+              permit(:title, :description, :rating, :released_on, :total_gross, :poster_image, :director, :cast, :duration)
     end
 
 end
