@@ -5,7 +5,6 @@ describe "Creating a new movie" do
     visit new_movie_url
 
     expect(find_field("Title").value).to eq(nil)
-    expect(find_field("Image file").value).to eq("")
     expect(find_field("Description").value).to eq("")
     expect(page).to have_text("Pick One")
     expect(find_field("Director").value).to eq(nil)
@@ -22,13 +21,13 @@ describe "Creating a new movie" do
 
     fill_in "Title",        with: "Movie McMovieface"
     fill_in "Description",  with: "The quick brown fox jumped over the lazy green frog."
-    fill_in "Released on",  with: "2017-01-01"    
-    select "PG-13", :from => "movie_rating" 
+    fill_in "Released on",  with: "2017-01-01"
+    select "PG-13", :from => "movie_rating"
     fill_in "Total gross",  with: 123456789
     fill_in "Director",     with: "Director McDirectorface"
     fill_in "Cast",         with: "Casty McCastface"
     fill_in "Duration",     with: "123 min"
-    fill_in "Image file name", with: "placeholder.png"
+    attach_file "Poster image", "#{Rails.root}/app/assets/images/interstellar.jpg"
 
     click_button ("Create Movie")
 
@@ -41,9 +40,12 @@ describe "Creating a new movie" do
   it "does not save the movie if it's invalid" do
     visit new_movie_url
 
-    expect {
-      click_button 'Create Movie'
-    }.not_to change(Movie, :count)
+    # expect {
+    #   click_button 'Create Movie'
+    # }.not_to change(Movie, :count)
+
+    click_button "Create Movie"
+    expect(Movie.count).to eq(nil)
 
     expect(current_path).to eq(movies_path)
     expect(page).to have_text('error')
@@ -56,13 +58,13 @@ describe "Creating a new movie" do
 
     fill_in "Title",        with: "Movie McMovieface"
     fill_in "Description",  with: "The quick brown fox jumped over the lazy green frog."
-    fill_in "Released on",  with: "2017-01-01"    
-    select "PG-13", :from => "movie_rating" 
+    fill_in "Released on",  with: "2017-01-01"
+    select "PG-13", :from => "movie_rating"
     fill_in "Total gross",  with: 123456789
     fill_in "Director",     with: "Director McDirectorface"
     fill_in "Cast",         with: "Casty McCastface"
     fill_in "Duration",     with: "123 min"
-    fill_in "Image file name", with: "placeholder.png"
+    attach_file "Poster image", "#{Rails.root}/app/assets/images/interstellar.jpg"
 
     click_button ("Create Movie")
 
