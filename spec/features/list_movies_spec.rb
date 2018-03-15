@@ -45,7 +45,7 @@ describe "Viewing the list of movies" do
     expect(page).to have_text(movie_1.rating)
     expect(page).to have_text("$675,020,017")
     expect(page).to have_text(movie_1.description[0...9])
-    expect(page).to have_text(movie_1.released_on)
+    expect(page).to have_selector("img[src*='#{movie_1.poster_image.url}']")
   end
 
   it "does not show a movie that is yet to be released" do
