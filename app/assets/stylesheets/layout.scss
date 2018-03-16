@@ -87,10 +87,13 @@ div#wrapper {
   padding: 10px;
   min-height: 400px;
   overflow: hidden;
+
   div#container {
+    display: flex;
     width: 960px;
 	  margin: 0 auto;
     padding: 10px 0;
+
     section#content {
       width: 620px;
       h1 {
@@ -103,7 +106,6 @@ div#wrapper {
 
 aside#sidebar {
   width: 200px;
-  float: right;
 
   h1 {
     color: $secondary-text-color;

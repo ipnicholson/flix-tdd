@@ -14,16 +14,16 @@
     <div id="wrapper">
 
       <%= render "layouts/flashes" %>
-      
+
       <div id="container">
-        <section id="sidebar">
-          <%= render "layouts/sidebar" %>
-        </section>
         <section id="content">
           <%= yield %>
         </section>
+        <section id="sidebar">
+          <%= render "layouts/sidebar" %>
+        </section>
       </div>
-    
+
     </div>
 
     <%= render "layouts/footer" %>
