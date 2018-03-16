@@ -92,9 +92,10 @@ Rails.application.configure do
     :url => ':s3_domain_url',
     :path => '/:class/:attachment/:id_partition/:style/:filename',
     :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => ENV.fetch['AWS_BUCKET'],
+      :access_key_id => ENV.fetch['AWS_ACCESS_KEY'],
+      :secret_access_key => ENV.fetch['AWS_SECRET_ACCESS_KEY'],
+      :s3_region => ENV.fetch['AWS_REGION']
     }
   }
 
