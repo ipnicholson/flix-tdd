@@ -16,7 +16,7 @@ Movie.create!([
     director: "Christopher Nolan",
     cast: "Matthew McConaughey, Anne Hathaway, Jessica Chastain, Michael Caine",
     duration: "169 min",
-    image_file_name: "interstellar.jpg"
+    poster_image: open("#{Rails.root}/app/assets/images/interstellar.jpg")
   },
   {
     title: "Dunkirk",
@@ -27,7 +27,7 @@ Movie.create!([
     director: "Christopher Nolan",
     cast: "Fionn Whitehead, Harry Styles, Tom Hardy, Kenneth Branagh",
     duration: "106 min",
-    image_file_name: "dunkirk.jpg"
+    poster_image: open("#{Rails.root}/app/assets/images/dunkirk.jpg")
   },
   {
     title: "Damnation",
@@ -38,7 +38,7 @@ Movie.create!([
     director: "Ben Knight, Travis Rummel",
     cast: "",
     duration: "87 min",
-    image_file_name: "damnation.jpg"
+    poster_image: open("#{Rails.root}/app/assets/images/damnation.jpg")
   },
   {
     title: "Kubo and the Two Strings",
@@ -49,7 +49,7 @@ Movie.create!([
     director: "Travis Knight",
     cast: "Charlize Theron, Art Parkinson, Matthew McConaughey",
     duration: "101 min",
-    image_file_name: "kuboandthetwostrings.jpg"
+    poster_image: open("#{Rails.root}/app/assets/images/kuboandthetwostrings.jpg")
   }
 ])
 

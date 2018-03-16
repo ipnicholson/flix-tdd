@@ -44,7 +44,7 @@ fieldset {
     box-shadow:    0px;
     border: 1px solid $subdued-color;
   }
-  
+
   div.field_with_errors {
     display: inline;
     label {
@@ -62,6 +62,11 @@ fieldset {
     a.button {
       padding: 10px 15px;
     }
+  }
+
+  img {
+    width: 150px;
+    padding-bottom: 12px;
   }
 }
 

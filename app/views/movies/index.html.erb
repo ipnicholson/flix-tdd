@@ -5,7 +5,7 @@
     <li>
       <article class="movie">
         <header>
-          <%= image_for(movie) %>
+          <%= image_tag(movie.poster_image.url) %>
           <h2><%= link_to movie.title, movie_path(movie) %> (<%= movie.released_on.year %>)</h2>
         </header>
         <p>

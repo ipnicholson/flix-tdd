@@ -8,7 +8,7 @@ def movie_attributes(overrides = {})
     cast: "Matthew McConaughey, Jessica Chastain, Anne Hathaway, Michael Caine",
     released_on: "2014-11-07",
     duration: "169 min",
-    image_file_name: "interstellar.jpg"
+    poster_image: open("#{Rails.root}/app/assets/images/interstellar.jpg")
   }.merge(overrides)
 end
 
