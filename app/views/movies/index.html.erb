@@ -1,37 +1,43 @@
 <h1><%= pluralize(@movies.size, 'Movie') %></h1>
 
-<ul id="movies">
+<div class="card" style="width: 36rem;">
   <% @movies.each do |movie| %>
-    <li>
-      <article class="movie">
-        <header>
-          <%= image_tag(movie.poster_image.url) %>
-          <h2><%= link_to movie.title, movie_path(movie) %> (<%= movie.released_on.year %>)</h2>
-        </header>
-        <p>
-          <%= truncate(movie.description, length: 140, separator: ' ') %>
-        </p>
-        <table>
-          <tr>
-            <th>Released</th>
-            <td><%= movie.released_on %></td>
-          </tr>
-          <tr>
-            <th>Rating</th>
-            <td><%= movie.rating %></td>
-          </tr>
-          <tr>
-            <th>Duration</th>
-            <td><%= movie.duration %></td>
-          </tr>
-          <tr>
-            <th>Total Gross</th>
-            <td><%= format_total_gross(movie) %></td>
-          </tr>
-        </table>
-        <footer>
-        </footer>
+      <article>
+
+        <%= link_to movie_path(movie) do %>
+          <%= image_tag(movie.poster_image.url, class: "card-img-top") %>
+        <% end %>
+
+        <div class="card-body">
+
+          <h2 class="card-title">
+            <%= link_to movie.title, movie_path(movie) %> (<%= movie.released_on.year %>)
+          </h2>
+
+          <div class="card-text">
+            <p>
+              <%= truncate(movie.description, length: 140, separator: ' ') %>
+            </p>
+            <table>
+              <tr>
+                <th>Released</th>
+                <td><%= movie.released_on %></td>
+              </tr>
+              <tr>
+                <th>Rating</th>
+                <td><%= movie.rating %></td>
+              </tr>
+              <tr>
+                <th>Duration</th>
+                <td><%= movie.duration %></td>
+              </tr>
+              <tr>
+                <th>Total Gross</th>
+                <td><%= format_total_gross(movie) %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </article>
-    </li>
-<% end %>
-</ul>
+  <% end %>
+</div>
