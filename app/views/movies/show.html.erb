@@ -59,25 +59,7 @@
       <% if @movie.recent_reviews.any? %>
         <h6>Recent Reviews</h6>
         <div class="row">
-          <% @movie.recent_reviews.each do |review| %>
-          <div class="col-lg-12 ml-2">
-            <span>
-              <%= pluralize(review.stars, 'Star') %>
-            </span>
-            <span class="font-weight-light">
-              by
-            </span>
-            <span class="font-weight-bold">
-              <%= review.name %>
-            </span>
-            <span class="font-italic">
-              <%= time_ago_in_words(review.created_at) %> ago
-            </span>
-            <p>
-              &quot;<%= review.comment %>&quot;
-            </p>
-          </div>
-          <% end %>
+          <%= render "reviews/display" %>
         </div>
       <% end %>
 
