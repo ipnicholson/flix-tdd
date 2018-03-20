@@ -1,4 +1,4 @@
-<article class="container">
+<article class="container mt-4">
   <div class="row">
     <header class="col-lg-4 col-md-6">
       <%= image_tag(@movie.poster_image.url, class: "img-fluid img-thumbnail") %>
@@ -14,25 +14,30 @@
       <%= @movie.description %>
       </p>
 
-
-      <h6>Director</h6>
-      <p>
-        <%= @movie.director %>
-      </p>
+      <div class="d-flex">
+        <div class="mr-2">
+          <h6>Director</h6>
+          <p>
+            <%= @movie.director %>
+          </p>
+        </div>
+        <div class= "mx-4">
+          <h6>Released</h6>
+          <p>
+            <%= @movie.released_on %>
+          </p>
+        </div>
+        <div class="mx-4">
+          <h6>Total Gross</h6>
+          <p>
+            <%= format_total_gross(@movie) %>
+          </p>
+        </div>
+      </div>
 
       <h6>Cast</h6>
       <p>
         <%= @movie.cast %>
-      </p>
-
-      <h6>Released</h6>
-      <p>
-        <%= @movie.released_on %>
-      </p>
-
-      <h6>Total Gross</h6>
-      <p>
-        <%= format_total_gross(@movie) %>
       </p>
 
       <h6>User Rating</h6>
@@ -41,6 +46,14 @@
         <%= format_average_stars(@movie) %> from
         <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
       </p>
+
+      <nav class="my-4">
+        <%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-primary', role: "button" %>
+        <%= link_to "Delete", movie_path(@movie),
+            class: "btn btn-danger",
+            method: :delete, data: {confirm: "Delete this movie?"},
+            role: "button" %>
+      </nav>
     </section>
   </div>
 
@@ -78,16 +91,10 @@
 <div class="row">
   <footer class="col-lg-12">
     <%= link_to "Add Review", new_movie_review_path(@movie),
-      class: "btn btn-primary",
+      class: "btn btn-primary mt-2",
       role: "button"
     %>
 
-    <nav>
-      <%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-primary' %>
-      <%= link_to "Delete", movie_path(@movie),
-          class: "btn btn-danger",
-          method: :delete, data: {confirm: "Delete this movie?"} %>
-    </nav>
   </footer>
 </div>
 </article>
