@@ -50,6 +50,39 @@ Movie.create!([
     cast: "Charlize Theron, Art Parkinson, Matthew McConaughey",
     duration: "101 min",
     poster_image: open("#{Rails.root}/app/assets/images/kuboandthetwostrings.jpg")
+  },
+  {
+    title: "Galaxy Quest",
+    rating: "PG",
+    total_gross: 90683916,
+    description: "The alumni cast of a space opera television series have to play their roles as the real thing when an alien race needs their help.",
+    released_on: "1999-12-25",
+    director: "Dean Parisot",
+    cast: "Tim Allen, Sigourney Weaver, Alan Rickman, Tony Shaloub",
+    duration: "102 min",
+    poster_image: open("#{Rails.root}/app/assets/images/galaxyquest.jpg")
+  },
+  {
+    title: "Blade Runner 2049",
+    rating: "R",
+    total_gross: 92054159,
+    description: "A young blade runner's discovery of a long-buried secrey leads him to track down former blade runner Rick Deckard, who's been missing for thirty years.",
+    released_on: "2017-10-17",
+    director: "Denis Villeneuve",
+    cast: "Ryan Gosling, Harrison Ford, Ana de Armas, Jared Leto",
+    duration: "164 min",
+    poster_image: open("#{Rails.root}/app/assets/images/bladerunner2049.jpg")
+  },
+  {
+    title: "L.A. Confidential",
+    rating: "R",
+    total_gross: 126216940,
+    description: "As corruption frows in 1950's LA, three policemen - one straight-laced, one brutal, and one sleazy - investigate a series of murders with their own brand of justice.",
+    released_on: "1997-9-19",
+    director: "Curtis Hanson",
+    cast: "Russel Crowe, Guy Pearce, Kevin Spacey, Kim Basinger",
+    duration: "138 min",
+    poster_image: open("#{Rails.root}/app/assets/images/laconfidential.jpg")
   }
 ])
 
