@@ -14,7 +14,7 @@ describe "Editing a movie" do
 
     fill_in "Title", with: "Updated Movie Title"
 
-    click_button ("Update Movie")
+    click_button ("Submit")
 
     expect(current_path).to eq(movie_path(movie))
 
@@ -28,7 +28,7 @@ describe "Editing a movie" do
 
     fill_in "Title", with: ""
 
-    click_button ("Update Movie")
+    click_button ("Submit")
 
     expect(current_path).to eq(movie_path(movie))
     expect(page).to have_text("error")
@@ -41,7 +41,7 @@ describe "Editing a movie" do
 
     fill_in "Title", with: "Updated Movie Title"
 
-    click_button "Update Movie"
+    click_button "Submit"
 
     expect(page).to have_text("Movie successfully updated!")
   end
