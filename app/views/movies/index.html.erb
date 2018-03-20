@@ -1,10 +1,8 @@
-<div class="jumbotron mt-3">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="display-4">
-        <%= pluralize(@movies.size, 'Movie') %>
-      </h1>
-    </div>
+<div class="row mt-3 mb-1">
+  <div class="col-lg-12">
+    <h1 class="display-4 text-center">
+      <%= pluralize(@movies.size, 'Movie') %>
+    </h1>
   </div>
 </div>
 
@@ -31,7 +29,7 @@
                 </p>
               </div>
               <div>
-                <table>
+                <table class="table-sm">
                   <tr>
                     <th>Released</th>
                     <td><%= movie.released_on %></td>
