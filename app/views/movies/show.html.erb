@@ -1,4 +1,4 @@
-<article class="container mt-4">
+<article class="container my-4">
   <div class="row">
     <header class="col-lg-4 col-md-6">
       <%= image_tag(@movie.poster_image.url, class: "img-fluid img-thumbnail") %>
@@ -6,6 +6,12 @@
 
     <section class="col-lg-8 col-md-6">
       <h1><%= @movie.title %> (<%= @movie.released_on.year %>) </h1>
+
+      <p>
+        <%= format_star_display(@movie) %>
+        <%= format_average_stars(@movie) %> from
+        <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
+      </p>
 
       <p>
       <h6 class="no-rule">
@@ -40,36 +46,25 @@
         <%= @movie.cast %>
       </p>
 
-      <h6>User Rating</h6>
-      <p>
-        <%= format_star_display(@movie) %>
-        <%= format_average_stars(@movie) %> from
-        <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
-      </p>
-
-      <nav class="my-4">
-        <%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-primary', role: "button" %>
+      <nav class="">
+        <%= link_to "Edit", edit_movie_path(@movie), class: 'btn btn-primary btn-sm', role: "button" %>
         <%= link_to "Delete", movie_path(@movie),
-            class: "btn btn-danger",
+            class: "btn btn-danger btn-sm",
             method: :delete, data: {confirm: "Delete this movie?"},
             role: "button" %>
       </nav>
-    </section>
-  </div>
 
-  <hr class="my-4">
+      <hr class="my-4">
 
-  <div class="row">
-    <section class="col-lg-12">
       <% if @movie.recent_reviews.any? %>
         <h6>Recent Reviews</h6>
-        <ol>
+        <ul>
           <% @movie.recent_reviews.each do |review| %>
           <li>
             <span>
               <%= pluralize(review.stars, 'Star') %>
             </span>
-            <span class="font-italic">
+            <span class="font-weight-light">
               by
             </span>
             <span class="font-weight-bold">
@@ -83,18 +78,17 @@
             </p>
           </li>
           <% end %>
-        </ol>
+        </ul>
       <% end %>
+
+      <footer>
+        <%= link_to "Add Review", new_movie_review_path(@movie),
+          class: "btn btn-primary btn-sm mt-2",
+          role: "button"
+        %>
+      </footer>
+
     </section>
+
   </div>
-
-<div class="row">
-  <footer class="col-lg-12">
-    <%= link_to "Add Review", new_movie_review_path(@movie),
-      class: "btn btn-primary mt-2",
-      role: "button"
-    %>
-
-  </footer>
-</div>
 </article>
