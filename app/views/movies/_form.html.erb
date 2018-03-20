@@ -1,48 +1,68 @@
 <%= form_for(@movie) do |f| %>
   <%= render 'shared/errors', object: @movie %>
   <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :title %><br/>
-        <%= f.text_field :title, autofocus: true %>
-      </li>
-      <li class="required">
-        <%= f.label :poster_image %><br/>
-        <%= image_for(@movie) %>
-        <%= f.file_field :poster_image %>
-      </li>
-      <li class="required">
-        <%= f.label :director %><br/>
-        <%= f.text_field :director %>
-      </li>
-      <li class="required">
-        <%= f.label :cast %><br/>
-        <%= f.text_field :cast %>
-      </li>
-      <li class="required">
-        <%= f.label :duration %><br/>
-        <%= f.text_field :duration, size: 10 %>
-      </li>
-      <li class="required">
-        <%= f.label :description %><br/>
-        <%= f.text_area :description, cols: 40, rows: 7 %>
-      </li>
-      <li class="required">
-        <%= f.label :rating %><br/>
-        <%= f.select :rating, Movie::RATINGS, prompt: "Pick One" %>
-      </li>
-      <li class="required">
-        <%= f.label :released_on %><br/>
-        <%= f.date_field :released_on %>
-      </li>
-      <li class="required">
-        <%= f.label :total_gross %><br/>
-        <%= f.number_field :total_gross %>
-      </li>
-    </ol>
-    <p>
-      <%= f.submit %> |
-      <%= link_to "Cancel", movies_path, class: 'button' %>
-    </p>
+    <div class="row mt-2">
+      <div class="col-lg-8">
+        <div class="form-group">
+          <%= f.label :title %><br/>
+          <%= f.text_field :title, autofocus: true, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :director %><br/>
+          <%= f.text_field :director, class: "form-control" %>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :duration %><br/>
+              <%= f.text_field :duration, size: 10, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :rating %><br/>
+              <%= f.select :rating, Movie::RATINGS, prompt: "Pick One", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cast %><br/>
+          <%= f.text_field :cast, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %><br/>
+          <%= f.text_area :description, cols: 40, rows: 5, class: "form-control" %>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :released_on %><br/>
+              <%= f.date_field :released_on, class: "form-control" %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= f.label :total_gross %><br/>
+              <%= f.number_field :total_gross, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+          <%= link_to "Cancel", movies_path, class: 'btn btn-primary', role: "button" %>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="form-group">
+          <%= f.label :poster_image %><br/>
+          <%= image_for(@movie) %>
+          <%= f.file_field :poster_image, class: "form-control-file" %>
+        </div>
+      </div>
+    </div>
   </fieldset>
 <% end %>
