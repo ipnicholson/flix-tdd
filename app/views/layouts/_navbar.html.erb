@@ -9,7 +9,12 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'All Movies', movies_path, class: "nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
         <li class="nav-item">
           <%= link_to 'Add Movie', new_movie_path, class: "nav-link" %>
         </li>
