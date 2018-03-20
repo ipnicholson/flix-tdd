@@ -2,7 +2,7 @@
   <%= render 'shared/errors', object: @movie %>
   <fieldset>
     <div class="row mt-2">
-      <div class="col-lg-8">
+      <div class="col-lg-6">
         <div class="form-group">
           <%= f.label :title %><br/>
           <%= f.text_field :title, autofocus: true, class: "form-control" %>
@@ -56,11 +56,11 @@
           <%= link_to "Cancel", movies_path, class: 'btn btn-primary', role: "button" %>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <div class="form-group">
           <%= f.label :poster_image %><br/>
           <%= image_for(@movie) %>
-          <%= f.file_field :poster_image, class: "form-control-file" %>
+          <%= f.file_field :poster_image, class: "form-control-file mt-3" %>
         </div>
       </div>
     </div>
