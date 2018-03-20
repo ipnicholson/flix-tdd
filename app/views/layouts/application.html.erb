@@ -16,19 +16,15 @@
   <body>
     <%= render "layouts/navbar" %>
 
-    <div id="wrapper">
+    <div class="container">
 
       <%= render "layouts/flashes" %>
 
-      <div id="container">
-        <section id="content">
-          <%= yield %>
-        </section>
-        <section id="sidebar">
-          <%= render "layouts/sidebar" %>
-        </section>
-      </div>
+      <%= yield %>
 
+      <section id="sidebar">
+        <%= render "layouts/sidebar" %>
+      </section>
     </div>
 
     <%= render "layouts/footer" %>
