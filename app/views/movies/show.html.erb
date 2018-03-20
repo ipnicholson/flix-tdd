@@ -1,65 +1,68 @@
-<article id="movie" class="movie">
+<article class="container">
+  <div class="row">
+    <header class="col-lg-4">
+      <%= image_tag(@movie.poster_image.url, class: "img-fluid img-thumbnail") %>
+    </header>
 
-  <header>
-    <%= image_tag(@movie.poster_image.url) %>
-    <h1><%= @movie.title %></h1>
-    <h2>Released: (<%= @movie.released_on %>)</h2>
-  </header>
+    <section class="col-lg-8">
+      <h1><%= @movie.title %></h1>
+      <h6>Released: (<%= @movie.released_on %>)</h6>
+      <p>
+      <%= @movie.description %>
+      </p>
 
-  <p>
-    <%= @movie.description %>
-  </p>
+      <h6 class="no-rule">
+        <%= @movie.rating %> &bull; <%= @movie.duration %>
+      </h6>
 
-  <h3 class="no-rule">
-    <%= @movie.rating %> &bull; <%= @movie.duration %>
-  </h3>
+      <h6>Director</h6>
+      <p>
+        <%= @movie.director %>
+      </p>
 
-  <h3>Director</h3>
-  <p>
-    <%= @movie.director %>
-  </p>
+      <h6>Cast</h6>
+      <p>
+        <%= @movie.cast %>
+      </p>
 
-  <h3>Cast</h3>
-  <p>
-    <%= @movie.cast %>
-  </p>
+      <h6>Total Gross</h6>
+      <p>
+        <%= format_total_gross(@movie) %>
+      </p>
 
-  <h3>Total Gross</h3>
-  <p>
-    <%= format_total_gross(@movie) %>
-  </p>
+      <h6>User Rating</h6>
+      <p>
+        <%= format_star_display(@movie) %>
+        <%= format_average_stars(@movie) %> from
+        <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
+      </p>
 
-  <h3>User Rating</h3>
-  <p>
-    <%= format_star_display(@movie) %>
-    <%= format_average_stars(@movie) %> from
-    <%= link_to pluralize(@movie.reviews.count, "Review") , movie_reviews_path(@movie) %>
-  </p>
+      <%= format_recent_reviews(@movie) %>
 
-  <%= format_recent_reviews(@movie) %>
-
-  <% if @movie.recent_reviews.any? %>
-    <h3>Recent Reviews</h3>
-    <ol id="reviews">
-      <% @movie.recent_reviews.each do |review| %>
-      <li>
-        <span class="review">
-          <%= pluralize(review.stars, 'Star') %>
-        </span>
-        <span class="user">
-          by <%= review.name %>
-        </span>
-        <span class="date">
-          <%= time_ago_in_words(review.created_at) %> ago
-        </span>
-        <p>
-          &quot;<%= review.comment %>&quot;
-        </p>
-      </li>
+      <% if @movie.recent_reviews.any? %>
+        <h6>Recent Reviews</h6>
+        <ol id="reviews">
+          <% @movie.recent_reviews.each do |review| %>
+          <li>
+            <span class="review">
+              <%= pluralize(review.stars, 'Star') %>
+            </span>
+            <span class="user">
+              by <%= review.name %>
+            </span>
+            <span class="date">
+              <%= time_ago_in_words(review.created_at) %> ago
+            </span>
+            <p>
+              &quot;<%= review.comment %>&quot;
+            </p>
+          </li>
+          <% end %>
+        </ol>
       <% end %>
-    </ol>
-  <% end %>
+    </section>
 
+  </div>
   <footer>
     <%= link_to "Add Review", new_movie_review_path(@movie),
       class: "button ok review"
