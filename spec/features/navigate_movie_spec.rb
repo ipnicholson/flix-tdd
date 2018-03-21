@@ -16,7 +16,7 @@ describe "Navigating movies" do
 
     visit movies_url
 
-    within('h2') do
+    within('h3') do
       click_link(movie.title)
     end
 
