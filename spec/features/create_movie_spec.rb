@@ -29,7 +29,7 @@ describe "Creating a new movie" do
     fill_in "Duration",     with: "123 min"
     attach_file "Poster image", "#{Rails.root}/app/assets/images/interstellar.jpg"
 
-    click_button ("Create Movie")
+    click_button ("Submit")
 
     expect(page).to have_text("Movie McMovieface")
     expect(page).to have_text("The quick brown fox")
@@ -41,10 +41,10 @@ describe "Creating a new movie" do
     visit new_movie_url
 
     # expect {
-    #   click_button 'Create Movie'
+    #   click_button 'Submit'
     # }.not_to change(Movie, :count)
 
-    click_button "Create Movie"
+    click_button "Submit"
     expect(Movie.count).to eq(nil)
 
     expect(current_path).to eq(movies_path)
@@ -66,7 +66,7 @@ describe "Creating a new movie" do
     fill_in "Duration",     with: "123 min"
     attach_file "Poster image", "#{Rails.root}/app/assets/images/interstellar.jpg"
 
-    click_button ("Create Movie")
+    click_button ("Submit")
 
     expect(page).to have_text("Movie successfully created!")
   end

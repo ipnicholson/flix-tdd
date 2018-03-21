@@ -1,20 +1,27 @@
-<h1><%= pluralize(@reviews.size, 'Review') %> for <%= link_to @movie.title, @movie %> </h1>
+<div class="container mt-2">
+  <div class="row">
+    <h1><%= pluralize(@reviews.size, 'Review') %> for <%= link_to @movie.title, @movie %> </h1>
+  </div>
+</div>
 
-<ol id="reviews">
-  <% @reviews.each do |review| %>
-    <li>
-      <span class="review">
-        <%= pluralize(review.stars, 'Star') %>
-      </span>
-      <span class="user">
-        by <%= review.name %>
-      </span>
-      <span class="date">
-        <%= time_ago_in_words(review.created_at) %> ago
-      </span>
-      <p>
-        &quot;<%= review.comment %>&quot;
-      </p>
-    </li>
-  <% end %>
-</ol>
+<div class="container mt-4">
+  <div class="row">
+    <% @movie.reviews.reverse.each do |review| %>
+      <div class="col-lg-12">
+        <%= format_review_stars(review) %>
+        <span class="font-weight-light">
+          by
+        </span>
+        <span class="font-weight-bold">
+          <%= review.name %>
+        </span>
+        <span class="font-italic">
+          <%= time_ago_in_words(review.created_at) %> ago
+        </span>
+        <p>
+          &quot;<%= review.comment %>&quot;
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -17,7 +17,7 @@ describe "Editing a review" do
     fill_in "Name", with: "Updated Review Name"
     fill_in "Comment", with: "Updated Review Comment"
 
-    click_button("Update Review")
+    click_button("Submit")
 
     expect(current_path).to eq(movie_review_path(movie, review))
 
@@ -37,7 +37,7 @@ describe "Editing a review" do
     fill_in "Name", with: ""
     fill_in "Comment", with: " "
 
-    click_button("Update Review")
+    click_button("Submit")
 
     expect(current_path).to eq(movie_review_path(movie, review))
     expect(page).to have_text("error")
