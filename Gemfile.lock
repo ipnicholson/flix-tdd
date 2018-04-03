@@ -578,6 +578,7 @@ GEM
       aws-sigv4 (~> 1.0)
     aws-sigv2 (1.0.1)
     aws-sigv4 (1.0.2)
+    bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
@@ -749,6 +750,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-sdk (>= 2.0.34)
+  bcrypt (~> 3.1.7)
   bootstrap (~> 4.0.0)
   byebug
   capybara
