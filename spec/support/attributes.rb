@@ -27,3 +27,12 @@ def review_attributes_2(overrides = {})
     stars: 5
   }.merge(overrides)
 end
+
+def user_attributes(overrides = {})
+  {
+    name: "Emmylou",
+    email: "emmylou@firstaidkit.com",
+    password: "pass1234",
+    password_confirmation: "pass1234"
+  }
+end
